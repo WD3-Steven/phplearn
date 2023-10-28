@@ -129,5 +129,10 @@ function tableMultiplication($n) {
         $resultats[$i] = $n * $i;
     }
 
-    return $resultats;
+    foreach ($resultats as $i => $resultat) {
+        echo "$n x $i = $resultat\n";
+    }
 }
+
+tableMultiplication(5);
+
