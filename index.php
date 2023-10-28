@@ -58,20 +58,76 @@ var_dump ($userNumber);
 
 // Partie 1: Création de Tableaux
 
-$table_asso = [
-    'eleves' => [
-        'Alice' => [
-            'notes' => [90]
-        ],
-        'Bob' => [
-            'notes' => [85]
-        ],
-        'Charlie' => [
-            'notes' => [78]
-        ],
-    ]
+$eleves = [
+        "Alice" => 90,
+        "Bob" => 85,
+        "Charlie" => 78
     ];
 
-$table_month = [
-
+$mois = [
+    "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", 
+    "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
 ];
+
+// Partie 2: Boucle foreach
+
+foreach($eleves as $eleve => $note){
+    echo "$eleve a obtenu $note points.\n";
+}
+foreach($mois as $moisDiff){
+    echo "$moisDiff"."\n";
+}
+
+// Partie 3: Switch et Ternaire
+
+$eleveChoice = readline ('Entrez le nom de l\'élève : ');
+switch ($eleveChoice) {
+    case "Alice":
+        if ($eleves["Alice"] >= 90) {
+            echo "Excellent !\n";
+        } elseif ($eleves["Alice"] >= 70) {
+            echo "Bien !\n";
+        } else {
+            echo "À améliorer.\n";
+        }
+        break;
+
+    case "Bob":
+        if ($eleves["Bob"] >= 90) {
+            echo "Excellent !\n";
+        } elseif ($eleves["Bob"] >= 70) {
+            echo "Bien !\n";
+        } else {
+            echo "À améliorer.\n";
+        }
+        break;
+
+    case "Charlie":
+        if ($eleves["Charlie"] >= 90) {
+            echo "Excellent !\n";
+        } elseif ($eleves["Charlie"] >= 70) {
+            echo "Bien !\n";
+        } else {
+            echo "À améliorer.\n";
+        }
+        break;
+};
+
+$monthChoice = readline("Entrez un mois : ");
+$jours = ($monthChoice === "Février") ? "28 jours" : (in_array($monthChoice, ["Janvier", "Mars", "Mai", "Juillet", "Août", "Octobre", "Décembre"]) ? "31 jours" : "30 jours");
+
+echo "$monthChoice a $jours.\n";
+
+// Exercice 5: Fonction avec Boucles Complexes
+
+// Partie 1: Création d'une Fonction et d'un Tableau
+
+function tableMultiplication($n) {
+    $resultats = array();
+
+    for ($i = 1; $i <= 10; $i++) {
+        $resultats[$i] = $n * $i;
+    }
+
+    return $resultats;
+}
